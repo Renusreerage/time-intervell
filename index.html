@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time intravell</title>
+    <style>
+     #time{
+        border-top:100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to left,navy,blue,navy);
+        height: 200px;
+        width: 600px;
+        color: white;
+        font-size: xx-large;
+        margin-top: 250px;
+        border-radius: 80px;
+     }
+     #time:hover{
+        background: linear-gradient(to left,pink,greenyellow,skyblue);
+        color: black;
+        transition: 5s;
+     }
+     body{
+        background-image: url(blue.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+     }
+       
+    </style>
+</head>
+<body>
+    <center>
+    <div id="time">
+        <span></span>
+    <span id="hours">00</span>
+    <span>:</span>
+    <span id="minutes">00</span>
+    <span>:</span>
+    <span id="seconds">00</span>
+    <span id="ampm">pm</span>
+    </div>
+    </center>
+    
+    <script>
+        function clock(){
+            let clock = new Date()
+            let hr = clock.getHours()
+            let min = clock.getMinutes()
+            let sec = clock.getSeconds()
+            let hours = document.querySelector('#hours')
+            let AMPM = document.querySelector('#AMPM')
+            if (hr>12){
+                hr=hr-12
+                AMPM = 'PM'
+            }
+            if (hr<10){
+                hr='0'+hr
+            }
+
+            // if (hr<=12){
+            // let hrs =  document.querySelector("#ampm");
+            // hrs.innerHTML="PM";}
+            // else{
+            // let mi =  document.querySelector("#ampm");
+            // mi.innerHTML = "AM";
+            // }
+
+            let hrs = document.querySelector('#minutes')
+            if (hr<10){
+                hr=''+hr
+            }
+            hours.innerHTML = hr
+            let minutes = document.querySelector('#minutes')
+            if (min<10){
+                min='0'+min
+            }
+            minutes.innerHTML = min
+            let seconds = document.querySelector('#seconds')
+            if (sec<10){
+                sec='0'+sec
+            }
+            seconds.innerHTML = sec
+
+        }
+        setInterval(clock,1000)
+        // setInterval(floor(1000+math.random*9000))
+    </script>
+</body>
+</html>
